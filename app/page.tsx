@@ -88,10 +88,10 @@ export default function CipsaEnterprise() {
       <div className="bg-white py-12 border-b border-slate-100">
         <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-center">
           {[
-            { t: "Constancia", v: "DS3" },
+            { t: "Constancia", v: "DC3" },
             { t: "Especialidad", v: "Agroindustrial" },
-            { t: "Normativa", v: "HACCP / BPM / BPA" },
-            { t: "Atención", v: "Personalizada" }
+            { t: "Capacitacion", v: "HACCP / BPM / BPA" },
+            { t: "Personalizada", v: "Atención" }
           ].map((item, i) => (
             <div key={i} className="border-r last:border-0 border-slate-100">
               <p className="text-[#84cc16] font-black text-xl mb-1">{item.v}</p>
@@ -120,7 +120,7 @@ export default function CipsaEnterprise() {
               },
               {
                 title: "Inocuidad Alimentaria",
-                desc: "Implementación de sistemas HACCP, Buenas Prácticas de Manufactura (BPM) y Prácticas Agrícolas.",
+                desc: "Implementación de sistemas HACCP, Buenas Prácticas de Manufactura (BPM) y Buenas Prácticas Agrícolas (BPA).",
                 icon: <Microscope size={40} />
               },
               {
@@ -146,10 +146,10 @@ export default function CipsaEnterprise() {
           <div>
             <h2 className="text-5xl font-black mb-8 italic">Formación Técnica con <span className="text-[#84cc16]">Valor Curricular</span></h2>
             <p className="text-slate-400 text-xl mb-10 leading-relaxed font-light">
-              Capacitamos a su personal bajo los más estrictos estándares de seguridad y salud ocupacional. Se expiden constancias de habilidades laborales **DS3**.
+              Capacitamos a su personal bajo los más estrictos estándares de seguridad y salud ocupacional. Se expiden constancias de habilidades laborales **DC3**.
             </p>
             <ul className="space-y-6">
-              {['Primeros Auxilios', 'Buenas Prácticas de Manufactura', 'HACCP y Análisis de Riesgos', 'Reglamentos Internos de Trabajo'].map((item, i) => (
+              {['Primeros Auxilios', 'Buenas Prácticas de Manufactura', 'HACCP y Análisis de Riesgos', 'Reglamentos Internos de Trabajo','Prevencion y control de Incendios'].map((item, i) => (
                 <li key={i} className="flex items-center gap-4 text-lg">
                   <div className="w-6 h-6 bg-[#84cc16] rounded-full flex items-center justify-center text-white"><CheckCircle2 size={16} /></div>
                   {item}
@@ -203,7 +203,7 @@ export default function CipsaEnterprise() {
               <input type="email" placeholder="Email" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
               <select className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all text-slate-500 font-medium">
                 <option>Interés: Asesoria de Inocuidad</option>
-                <option>Interés: Capacitación DS3</option>
+                <option>Interés: Capacitación DC3</option>
                 <option>Interés: Control de Plagas Industrial</option>
               </select>
               <textarea placeholder="Mensaje" className="w-full p-4 bg-white border border-slate-200 rounded-2xl h-40 focus:ring-2 focus:ring-[#84cc16] outline-none transition-all"></textarea>
@@ -242,5 +242,6 @@ export default function CipsaEnterprise() {
     </div>
   );
 }
+
 
 
