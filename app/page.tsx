@@ -1,10 +1,9 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { 
-  ShieldCheck, Bug, Factory, Phone, 
-  CheckCircle2, MessageCircle, Menu, X,
-  MapPin, Mail, GraduationCap, ClipboardCheck,
-  ChevronRight, Award, Microscope, Calendar as CalendarIcon
+  Bug, Phone, CheckCircle2, MessageCircle, Menu, X, 
+  Mail, GraduationCap, ClipboardCheck, ChevronRight, 
+  Award, Microscope, Calendar as CalendarIcon 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,12 +12,12 @@ export default function CipsaEnterprise() {
   const [scrolled, setScrolled] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-  // --- CONFIGURACIÓN DE TUS PRÓXIMOS CURSOS ---
+  // --- CONFIGURACIÓN DE TU CALENDARIO DIDÁCTICO ---
   const proximosCursos = [
-    { fecha: "15 Mar", curso: "HACCP e Inocuidad", cupo: "Disponible" },
-    { fecha: "22 Mar", curso: "Primeros Auxilios", cupo: "Pocos lugares" },
-    { fecha: "05 Abr", curso: "Buenas Prácticas (BPM)", cupo: "Disponible" },
-    { fecha: "12 Abr", curso: "Prevención de Incendios", cupo: "Disponible" }
+    { fecha: "15 Mar", curso: "HACCP e Inocuidad", estado: "Cupo Disponible", color: "#84cc16" },
+    { fecha: "22 Mar", curso: "Primeros Auxilios", estado: "Últimos Lugares", color: "#ef4444" },
+    { fecha: "05 Abr", curso: "Buenas Prácticas (BPM)", estado: "Cupo Disponible", color: "#84cc16" },
+    { fecha: "12 Abr", curso: "Prevención de Incendios", estado: "Cupo Disponible", color: "#84cc16" }
   ];
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export default function CipsaEnterprise() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-[#84cc16] selection:text-white">
+    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-[#84cc16] selection:text-white italic">
       
       {/* --- NAVEGACIÓN --- */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-xl py-2' : 'bg-transparent py-4'}`}>
@@ -36,16 +35,12 @@ export default function CipsaEnterprise() {
           <div className="flex items-center gap-2">
             <img src="/cipsa-logo.png" alt="CIPSA Logo" className="h-14 w-auto object-contain" />
           </div>
-          
-          <div className="hidden md:flex items-center gap-10 font-bold text-sm uppercase tracking-widest">
+          <div className="hidden md:flex items-center gap-10 font-bold text-sm uppercase tracking-widest text-white">
             <a href="#inicio" className={`${scrolled ? 'text-slate-800' : 'text-white'} hover:text-[#84cc16] transition-colors`}>Inicio</a>
             <a href="#servicios" className={`${scrolled ? 'text-slate-800' : 'text-white'} hover:text-[#84cc16] transition-colors`}>Servicios</a>
             <a href="#capacitacion" className={`${scrolled ? 'text-slate-800' : 'text-white'} hover:text-[#84cc16] transition-colors`}>Capacitación</a>
-            <a href="#contacto" className="bg-[#84cc16] text-white px-8 py-3 rounded-full hover:shadow-lg hover:shadow-lime-500/40 transition-all active:scale-95">
-              Contacto
-            </a>
+            <a href="#contacto" className="bg-[#84cc16] text-white px-8 py-3 rounded-full hover:shadow-lg hover:shadow-lime-500/40 transition-all active:scale-95">Contacto</a>
           </div>
-
           <button className="md:hidden text-[#84cc16]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
@@ -58,65 +53,53 @@ export default function CipsaEnterprise() {
           <img src="/logo-sipsa-monito.jpg" alt="Fondo CIPSA" className="w-full h-full object-cover scale-105" />
           <div className="absolute inset-0 bg-[#0f172a]/80 backdrop-blur-[2px]"></div>
         </div>
-
-        <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="container mx-auto px-6 relative z-10 text-center text-white">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="flex justify-center mb-6">
-              <span className="bg-[#84cc16] text-white px-4 py-1 rounded text-xs font-black uppercase tracking-[0.3em]">Consultoría Elite</span>
+              <span className="bg-[#84cc16] text-white px-4 py-1 rounded text-[10px] font-black uppercase tracking-[0.4em]">Consultoría Elite</span>
             </div>
-            <h1 className="text-5xl md:text-8xl font-black text-white mb-6 leading-tight">
-              Líderes en <span className="text-[#84cc16]">Inocuidad</span> <br />y Control Industrial
-            </h1>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
-              Especialistas en certificar empresas agroindustriales. Asesoría técnica, capacitaciones de alto nivel y control de plagas con estándares internacionales.
-            </p>
+            <h1 className="text-5xl md:text-8xl font-black mb-6 leading-tight uppercase tracking-tighter italic">Líderes en <span className="text-[#84cc16]">Inocuidad</span> <br />y Control Industrial</h1>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">Especialistas en certificar empresas agroindustriales. Asesoría técnica, control de plagas y capacitación profesional <span className="text-white font-bold underline">DC3</span>.</p>
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <a href="#contacto" className="px-10 py-5 bg-[#84cc16] text-white rounded-full font-bold text-lg hover:bg-lime-500 transition-all flex items-center justify-center gap-2">
-                Solicitar Cotización <ChevronRight size={20} />
-              </a>
-              <div className="flex items-center justify-center gap-4 px-10 py-5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white font-bold">
-                <Award className="text-[#84cc16]" /> Certificación COFEPRIS
-              </div>
+              <a href="#contacto" className="px-10 py-5 bg-[#84cc16] text-white rounded-full font-black text-lg hover:bg-lime-500 transition-all uppercase tracking-widest shadow-xl shadow-lime-500/20">Solicitar Cotización</a>
+              <div className="flex items-center justify-center gap-4 px-10 py-5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 font-bold uppercase text-xs tracking-widest"><Award className="text-[#84cc16]" /> Licencia COFEPRIS</div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* --- MÉTRICAS --- */}
-      <div className="bg-white py-12 border-b border-slate-100">
-        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-center">
+      <div className="bg-white py-12 border-b border-slate-100 italic">
+        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-center uppercase tracking-tighter">
           {[
-            { t: "Certificados", v: "DC3 / COFEPRIS" },
-            { t: "Especialidad", v: "Agroindustria" },
-            { t: "Normativa", v: "HACCP / BPM / BPA" },
-            { t: "Atención", v: "Personalizada" }
+            { t: "Certificados", v: "DC3 / STPS" }, { t: "Especialidad", v: "Agroindustrial" },
+            { t: "Capacitación", v: "HACCP / BPM" }, { t: "Personalizada", v: "Atención" }
           ].map((item, i) => (
             <div key={i} className="border-r last:border-0 border-slate-100 px-4">
-              <p className="text-[#84cc16] font-black text-xl mb-1">{item.v}</p>
-              <p className="text-slate-500 text-xs uppercase tracking-widest">{item.t}</p>
+              <p className="text-[#84cc16] font-black text-2xl mb-1">{item.v}</p>
+              <p className="text-slate-400 text-[10px] font-black tracking-[0.3em] uppercase">{item.t}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* --- SERVICIOS --- */}
-      <section id="servicios" className="py-32 bg-slate-50">
+      <section id="servicios" className="py-32 bg-slate-50 italic">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-20">
-            <h2 className="text-[#1e293b] text-4xl md:text-5xl font-black mb-6 italic">Nuestra Especialización Técnica</h2>
-            <p className="text-slate-600 text-lg leading-relaxed">No solo controlamos plagas; aseguramos la integridad de su cadena de producción mediante sistemas avanzados de gestión de inocuidad.</p>
+            <h2 className="text-[#1e293b] text-5xl font-black mb-6 uppercase tracking-tighter italic">Especialización Técnica</h2>
+            <p className="text-slate-600 text-xl font-light">Aseguramos la integridad de su cadena de producción mediante sistemas avanzados de gestión de inocuidad.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-10">
             {[
-              { title: "Control Agroindustrial", desc: "Gestión integral de plagas diseñada para plantas de procesamiento y sectores agrícolas de alta exigencia.", icon: <Bug size={40} /> },
-              { title: "Inocuidad Alimentaria", desc: "Implementación de sistemas HACCP, Buenas Prácticas de Manufactura (BPM) y Prácticas Agrícolas.", icon: <Microscope size={40} /> },
-              { title: "Asesoría y Auditoría", desc: "Acompañamiento técnico para la certificación de empresas y cumplimiento de normativas de salud.", icon: <ClipboardCheck size={40} /> }
+              { title: "Control Agroindustrial", icon: <Bug size={40} /> },
+              { title: "Inocuidad Alimentaria", icon: <Microscope size={40} /> },
+              { title: "Asesoría y Auditoría", icon: <ClipboardCheck size={40} /> }
             ].map((s, i) => (
-              <div key={i} className="group bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
-                <div className="text-[#84cc16] mb-8 group-hover:scale-110 transition-transform duration-300">{s.icon}</div>
-                <h3 className="text-2xl font-bold mb-4 text-[#1e293b]">{s.title}</h3>
-                <p className="text-slate-600 leading-relaxed mb-6 font-light">{s.desc}</p>
-                <div className="w-12 h-1 bg-[#84cc16] group-hover:w-full transition-all duration-500"></div>
+              <div key={i} className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 group">
+                <div className="text-[#84cc16] mb-8 group-hover:scale-110 transition-transform">{s.icon}</div>
+                <h3 className="text-2xl font-black mb-4 text-[#1e293b] uppercase tracking-tighter italic">{s.title}</h3>
+                <div className="w-12 h-1 bg-[#84cc16] group-hover:w-full transition-all"></div>
               </div>
             ))}
           </div>
@@ -124,123 +107,129 @@ export default function CipsaEnterprise() {
       </section>
 
       {/* --- CAPACITACIÓN --- */}
-      <section id="capacitacion" className="py-32 bg-[#1e293b] text-white">
+      <section id="capacitacion" className="py-32 bg-[#1e293b] text-white italic">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
           <div>
-            <h2 className="text-5xl font-black mb-8 italic">Formación Técnica con <span className="text-[#84cc16]">Valor Curricular</span></h2>
-            <p className="text-slate-400 text-xl mb-10 leading-relaxed font-light">Capacitamos a su personal bajo los más estrictos estándares. Se expiden constancias de habilidades laborales **DC3**.</p>
+            <h2 className="text-5xl font-black mb-8 uppercase tracking-tighter italic">Formación Técnica <span className="text-[#84cc16]">DC3</span></h2>
+            <p className="text-slate-400 text-xl mb-10 font-light">Capacitamos a su personal bajo los más estrictos estándares con validez oficial ante la STPS.</p>
             <ul className="space-y-6">
-              {['Primeros Auxilios', 'Buenas Prácticas de Manufactura', 'HACCP y Análisis de Riesgos', 'Reglamentos Internos de Trabajo'].map((item, i) => (
+              {['Primeros Auxilios', 'Buenas Prácticas de Manufactura', 'HACCP e Inocuidad', 'Prevención de Incendios'].map((item, i) => (
                 <li key={i} className="flex items-center gap-4 text-lg font-bold"><CheckCircle2 className="text-[#84cc16]" size={20} /> {item}</li>
               ))}
             </ul>
           </div>
-          <div className="bg-white/5 p-10 rounded-[3rem] border border-white/10 backdrop-blur-sm relative">
-            <div className="absolute top-0 right-0 p-8 opacity-10"><GraduationCap size={120} /></div>
-            <h3 className="text-3xl font-bold mb-4 italic">Capacitación Profesional</h3>
-            <p className="text-slate-400 mb-8 font-light">Invierta en el cumplimiento normativo de su equipo con instructores certificados.</p>
+          <div className="bg-white/5 p-12 rounded-[3.5rem] border border-white/10 backdrop-blur-sm relative overflow-hidden group">
+            <h3 className="text-3xl font-black mb-4 uppercase tracking-tighter italic">Capacitación Especializada</h3>
+            <p className="text-slate-400 mb-10 font-light">Consulte las fechas de nuestros próximos cursos técnicos y talleres de certificación.</p>
             <button 
               onClick={() => setIsCalendarOpen(true)}
-              className="inline-block w-full text-center py-4 bg-[#84cc16] text-white font-black rounded-2xl hover:shadow-lg hover:shadow-lime-500/20 transition-all tracking-widest uppercase"
+              className="w-full py-6 bg-[#84cc16] text-white font-black rounded-2xl uppercase tracking-[0.2em] hover:bg-lime-500 transition-all shadow-xl shadow-lime-500/20 active:scale-95"
             >
-              Consultar Calendario
+              Abrir Calendario Didáctico
             </button>
           </div>
         </div>
       </section>
 
-      {/* --- CONTACTO --- */}
-      <section id="contacto" className="py-32 bg-white">
+      {/* --- CONTACTO Y MAPA CORREGIDO --- */}
+      <section id="contacto" className="py-32 bg-white italic">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-24">
           <div>
-            <h2 className="text-5xl font-black mb-8 text-[#1e293b]">Establezcamos <br />un nuevo estándar.</h2>
-            <div className="space-y-8 mb-12">
-              <div className="flex items-center gap-6 group">
-                <div className="w-16 h-16 bg-slate-50 flex items-center justify-center rounded-2xl text-[#84cc16] shadow-sm group-hover:bg-[#84cc16] group-hover:text-white transition-all"><Mail /></div>
-                <div><p className="text-xs text-slate-400 uppercase font-bold tracking-widest">Email Corporativo</p><p className="text-xl font-bold text-[#1e293b]">hectoruev292@gmail.com</p></div>
+            <h2 className="text-5xl font-black mb-8 text-[#1e293b] uppercase tracking-tighter italic">Ubicación y Contacto</h2>
+            <div className="space-y-8 mb-12 font-bold">
+              <div className="flex items-center gap-6 text-xl group cursor-pointer">
+                <div className="w-14 h-14 bg-slate-50 flex items-center justify-center rounded-2xl text-[#84cc16] group-hover:bg-[#84cc16] group-hover:text-white transition-all"><Mail /></div>
+                <div><p className="text-[10px] text-slate-400 uppercase tracking-widest font-black">Email Corporativo</p>hectoruev292@gmail.com</div>
               </div>
-              <div className="flex items-center gap-6 group">
-                <div className="w-16 h-16 bg-slate-50 flex items-center justify-center rounded-2xl text-[#84cc16] shadow-sm group-hover:bg-[#84cc16] group-hover:text-white transition-all"><Phone /></div>
-                <div><p className="text-xs text-slate-400 uppercase font-bold tracking-widest">Línea Directa</p><p className="text-xl font-bold text-[#1e293b]">636 111 7811</p></div>
+              <div className="flex items-center gap-6 text-xl group cursor-pointer">
+                <div className="w-14 h-14 bg-slate-50 flex items-center justify-center rounded-2xl text-[#84cc16] group-hover:bg-[#84cc16] group-hover:text-white transition-all"><Phone /></div>
+                <div><p className="text-[10px] text-slate-400 uppercase tracking-widest font-black">Línea Directa</p>636 111 7811</div>
               </div>
             </div>
-            <div className="rounded-[2.5rem] overflow-hidden h-80 shadow-2xl grayscale border-8 border-slate-50">
-              <iframe src="https://www.google.com/maps/embed...1" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
+            
+            {/* MAPA DE GOOGLE CORREGIDO: JANOS, CHIH. */}
+            <div className="h-96 bg-slate-100 rounded-[3rem] overflow-hidden grayscale border-8 border-slate-50 shadow-2xl relative group">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.69830843242!2d-108.1915645250428!3d30.585994992683056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86da7be8ace3f80d%3A0xfcfbfb9e6d211842!2sCipsa%20-%20Control%20de%20Plagas!5e0!3m2!1ses-419!2smx!4v1711111111111!5m2!1ses-419!2smx" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <div className="absolute inset-0 bg-[#84cc16]/5 pointer-events-none group-hover:bg-transparent transition-all"></div>
             </div>
           </div>
 
-          <div className="bg-[#f8fafc] p-12 rounded-[3rem] border border-slate-100 shadow-xl">
-            <h3 className="text-3xl font-black mb-8 text-[#1e293b] italic">Solicitud de Información</h3>
+          <div className="bg-[#f8fafc] p-12 rounded-[3.5rem] border border-slate-100 shadow-xl self-start italic">
+            <h3 className="text-3xl font-black mb-8 text-[#1e293b] uppercase tracking-tighter">Solicitud de Auditoría</h3>
             
-            {/* FORMULARIO CONECTADO (Solo cambia 'TU_ID_AQUI' después) */}
-            <form action="https://formspree.io/f/TU_ID_AQUI" method="POST" className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <input type="text" name="nombre" required placeholder="Nombre" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
-                <input type="text" name="empresa" placeholder="Empresa" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
-              </div>
-              <input type="email" name="email" required placeholder="Email" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
-              <select name="servicio" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all text-slate-500 font-medium">
-                <option>Interés: Asesoría de Inocuidad</option>
-                <option>Interés: Capacitación DC3</option>
-                <option>Interés: Control de Plagas Industrial</option>
-              </select>
-              <textarea name="mensaje" required placeholder="Mensaje" className="w-full p-4 bg-white border border-slate-200 rounded-2xl h-40 focus:ring-2 focus:ring-[#84cc16] outline-none transition-all font-light"></textarea>
-              <button type="submit" className="w-full py-5 bg-[#1e293b] text-[#84cc16] font-black text-lg rounded-2xl hover:bg-[#84cc16] hover:text-white transition-all shadow-lg uppercase tracking-widest active:scale-95">
-                Enviar Solicitud
-              </button>
+            {/* FORMULARIO CON FORMSPREE FUNCIONAL */}
+            <form action="https://formspree.io/f/mjgeeygr" method="POST" className="space-y-6">
+              <input type="text" name="nombre" required placeholder="Nombre Completo" className="w-full p-5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-[#84cc16] transition-all" />
+              <input type="email" name="email" required placeholder="Correo Electrónico" className="w-full p-5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-[#84cc16] transition-all" />
+              <textarea name="mensaje" required placeholder="Describa su requerimiento técnico..." className="w-full p-5 bg-white border border-slate-200 rounded-2xl h-40 outline-none focus:ring-2 focus:ring-[#84cc16] transition-all"></textarea>
+              <button type="submit" className="w-full py-6 bg-[#1e293b] text-[#84cc16] font-black text-lg rounded-2xl uppercase tracking-[0.2em] hover:bg-[#84cc16] hover:text-white transition-all shadow-xl active:scale-95">Enviar Solicitud Profesional</button>
             </form>
           </div>
         </div>
       </section>
 
-      {/* --- MODAL CALENDARIO --- */}
+      {/* --- MODAL CALENDARIO DIDÁCTICO --- */}
       <AnimatePresence>
         {isCalendarOpen && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0f172a]/90 backdrop-blur-xl">
-            <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} className="bg-white w-full max-w-2xl rounded-[3rem] p-10 relative">
-              <button onClick={() => setIsCalendarOpen(false)} className="absolute top-8 right-8 text-slate-400 hover:text-slate-900 transition-colors"><X size={32} /></button>
-              <h3 className="text-4xl font-black text-[#1e293b] mb-2 italic">Próximos Talleres 2026</h3>
-              <p className="text-[#84cc16] font-bold mb-8 uppercase tracking-widest text-xs">Capacitación con Valor DC3</p>
-              
-              <div className="space-y-4">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0f172a]/95 backdrop-blur-xl italic">
+            <motion.div initial={{ scale: 0.9, y: 30 }} animate={{ scale: 1, y: 0 }} className="bg-white w-full max-w-2xl rounded-[3.5rem] p-12 relative shadow-2xl border border-white/20">
+              <button onClick={() => setIsCalendarOpen(false)} className="absolute top-10 right-10 text-slate-300 hover:text-slate-900 transition-colors"><X size={32} /></button>
+              <div className="mb-10">
+                <h3 className="text-4xl font-black text-[#1e293b] mb-2 uppercase italic tracking-tighter">Agenda de Cursos <span className="text-[#84cc16]">2026</span></h3>
+                <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em]">Validez Oficial DC3 - STPS</p>
+              </div>
+              <div className="grid gap-6">
                 {proximosCursos.map((c, i) => (
-                  <div key={i} className="flex items-center justify-between p-6 bg-slate-50 rounded-[2rem] hover:bg-lime-50 transition-colors group">
-                    <div className="flex items-center gap-6">
-                      <div className="text-center bg-white p-3 rounded-2xl shadow-sm min-w-[70px]">
-                        <p className="text-xs font-black text-[#84cc16]">{c.fecha.split(' ')[1]}</p>
-                        <p className="text-xl font-black text-[#1e293b]">{c.fecha.split(' ')[0]}</p>
+                  <div key={i} className="flex flex-col md:flex-row items-center justify-between p-6 bg-slate-50 rounded-[2.5rem] border border-slate-100 group hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-center gap-6 mb-4 md:mb-0">
+                      <div className="text-center bg-[#1e293b] text-[#84cc16] p-4 rounded-[1.5rem] min-w-[85px] shadow-lg group-hover:scale-105 transition-transform">
+                        <p className="text-[10px] font-black opacity-60 uppercase leading-none">Día/Mes</p>
+                        <p className="text-lg font-black uppercase mt-1 leading-none">{c.fecha}</p>
                       </div>
                       <div>
-                        <p className="text-xl font-bold text-[#1e293b]">{c.curso}</p>
-                        <p className="text-xs text-slate-500 uppercase tracking-tighter">Estado: <span className="text-[#84cc16] font-bold">{c.cupo}</span></p>
+                        <p className="text-xl font-black text-[#1e293b] uppercase tracking-tighter">{c.curso}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: c.color }}></div>
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{c.estado}</p>
+                        </div>
                       </div>
                     </div>
-                    <a href={`https://wa.me/526361117811?text=Me interesa el curso de ${c.curso}`} className="bg-white p-3 rounded-full text-[#84cc16] shadow-sm hover:bg-[#84cc16] hover:text-white transition-all"><MessageCircle size={20} /></a>
+                    <a 
+                      href={`https://wa.me/526361117811?text=Hola! Me interesa información para el curso de: ${c.curso}`} 
+                      target="_blank"
+                      className="bg-[#84cc16] text-white px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-lime-600 transition-all shadow-lg active:scale-95"
+                    >
+                      Apartar Lugar
+                    </a>
                   </div>
                 ))}
               </div>
+              <p className="text-center mt-8 text-slate-400 text-[9px] uppercase font-black tracking-widest italic">* Sujeto a cambios sin previo aviso.</p>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* --- FOOTER --- */}
-      <footer className="bg-slate-50 py-16 border-t border-slate-100">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
-          <div className="flex items-center gap-4">
+      <footer className="bg-slate-50 py-16 border-t border-slate-100 italic">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
+          <div className="flex items-center gap-4 mb-6 md:mb-0">
             <img src="/cipsa-logo.png" alt="CIPSA" className="h-8 opacity-20 grayscale" />
-            <p>© 2026 CIPSA México. Consultoría en Inocuidad.</p>
+            <p>© 2026 CIPSA México. Consultoría en Inocuidad y Control Industrial.</p>
           </div>
-          <div className="flex gap-8">
-            <span className="text-[#84cc16]">Calidad</span>
-            <span>Seguridad</span>
-            <span>Higiene</span>
-          </div>
+          <div className="flex gap-8"><span className="text-[#84cc16]">Calidad</span><span>Seguridad</span><span>Higiene</span></div>
         </div>
       </footer>
 
-      {/* --- WHATSAPP --- */}
-      <a href="https://wa.me/526361117811" target="_blank" className="fixed bottom-10 right-10 w-20 h-20 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-90 transition-all z-50 group">
+      {/* --- WHATSAPP FLOAT --- */}
+      <a href="https://wa.me/526361117811" target="_blank" className="fixed bottom-10 right-10 w-20 h-20 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl z-50 transition-all hover:scale-110 active:scale-90 shadow-green-500/20">
         <MessageCircle size={38} />
       </a>
     </div>
