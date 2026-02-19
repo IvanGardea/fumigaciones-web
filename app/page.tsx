@@ -46,7 +46,7 @@ export default function HomePestControl() {
               🛡️ Certificados por COFEPRIS
             </span>
             <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
-              Protegemos tu hogar de <span className="text-primary">Invazores no deseados</span>
+              Protegemos tu hogar de <span className="text-primary"> Plagas </span>
             </h1>
             <p className="text-lg text-slate-600 mb-8 max-w-lg">
               Soluciones profesionales de fumigación y control de plagas con tecnología de punta y productos 100% seguros para tu familia y mascotas.
@@ -55,8 +55,8 @@ export default function HomePestControl() {
               <a href="#contacto" className="px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-green-900/20 transition-all">
                 Agendar Inspección
               </a>
-              <a href="tel:5512345678" className="px-8 py-4 bg-slate-100 text-slate-900 rounded-xl font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2">
-                <Phone size={20} /> 55 1234 5678
+              <a href="tel:6361117811" className="px-8 py-4 bg-slate-100 text-slate-900 rounded-xl font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2">
+                <Phone size={20} /> 636 111 7811
               </a>
             </div>
           </motion.div>
@@ -64,7 +64,7 @@ export default function HomePestControl() {
           <div className="relative">
             <div className="absolute -z-10 top-0 right-0 w-72 h-72 bg-green-200 rounded-full blur-3xl opacity-50" />
             <img 
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80" 
+              src="/logo-sipsa-monito.jpg" 
               alt="Técnico Fumigando" 
               className="rounded-3xl shadow-2xl object-cover w-full h-[500px]"
             />
@@ -196,3 +196,4 @@ export default function HomePestControl() {
   );
 
 }
+
