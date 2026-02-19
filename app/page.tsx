@@ -88,7 +88,7 @@ export default function CipsaEnterprise() {
       <div className="bg-white py-12 border-b border-slate-100">
         <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-center">
           {[
-            { t: "Costancia", v: "DS3" },
+            { t: "Constancia", v: "DS3" },
             { t: "Especialidad", v: "Agroindustrial" },
             { t: "Normativa", v: "HACCP / BPM / BPA" },
             { t: "Atención", v: "Personalizada" }
@@ -242,4 +242,5 @@ export default function CipsaEnterprise() {
     </div>
   );
 }
+
 
