@@ -63,7 +63,7 @@ export default function CipsaEnterprise() {
           >
             <div className="flex justify-center mb-6">
               <span className="bg-[#84cc16] text-white px-4 py-1 rounded text-xs font-black uppercase tracking-[0.3em]">
-                Consultoría Elite
+                Consultoría de Calidad
               </span>
             </div>
             <h1 className="text-5xl md:text-8xl font-black text-white mb-6 leading-tight">
@@ -77,7 +77,7 @@ export default function CipsaEnterprise() {
                 Solicitar Cotización <ChevronRight size={20} />
               </a>
               <div className="flex items-center justify-center gap-4 px-10 py-5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white font-bold">
-                <Award className="text-[#84cc16]" /> Certificación COFEPRIS
+                <Award className="text-[#84cc16]" /> Licencia COFEPRIS
               </div>
             </div>
           </motion.div>
@@ -88,8 +88,8 @@ export default function CipsaEnterprise() {
       <div className="bg-white py-12 border-b border-slate-100">
         <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-center">
           {[
-            { t: "Certificados", v: "DS3 / COFEPRIS" },
-            { t: "Especialidad", v: "Agroindustria" },
+            { t: "Costancia", v: "DS3" },
+            { t: "Especialidad", v: "Agroindustrial" },
             { t: "Normativa", v: "HACCP / BPM / BPA" },
             { t: "Atención", v: "Personalizada" }
           ].map((item, i) => (
@@ -194,7 +194,7 @@ export default function CipsaEnterprise() {
           </div>
 
           <div className="bg-[#f8fafc] p-12 rounded-[3rem] border border-slate-100 shadow-xl self-start">
-            <h3 className="text-3xl font-black mb-8 text-[#1e293b] italic">Solicitud de Auditoría</h3>
+            <h3 className="text-3xl font-black mb-8 text-[#1e293b] italic">Solicitud de Informacion</h3>
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <input type="text" placeholder="Nombre" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
@@ -202,7 +202,7 @@ export default function CipsaEnterprise() {
               </div>
               <input type="email" placeholder="Email" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
               <select className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all text-slate-500 font-medium">
-                <option>Interés: Auditoría de Inocuidad</option>
+                <option>Interés: Asesoria de Inocuidad</option>
                 <option>Interés: Capacitación DS3</option>
                 <option>Interés: Control de Plagas Industrial</option>
               </select>
@@ -242,3 +242,4 @@ export default function CipsaEnterprise() {
     </div>
   );
 }
+
