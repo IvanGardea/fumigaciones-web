@@ -7,18 +7,42 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// ==========================================================
+//  👇 CONFIGURACIÓN RÁPIDA DE CURSOS (Cambia esto solamente)
+// ==========================================================
+const MIS_CURSOS = [
+  { 
+    fecha: "15 Mar", 
+    curso: "HACCP e Inocuidad", 
+    estado: "Cupo Disponible", 
+    urgencia: "alta" // "alta" pone el punto rojo, "baja" pone punto verde
+  },
+  { 
+    fecha: "22 Mar", 
+    curso: "Primeros Auxilios", 
+    estado: "Últimos Lugares", 
+    urgencia: "alta" 
+  },
+  { 
+    fecha: "05 Abr", 
+    curso: "Buenas Prácticas (BPM)", 
+    estado: "Cupo Disponible", 
+    urgencia: "baja" 
+  },
+  { 
+    fecha: "12 Abr", 
+    curso: "Prevención de Incendios", 
+    estado: "Cupo Disponible", 
+    urgencia: "baja" 
+  }
+];
+// ==========================================================
+
+
 export default function CipsaEnterprise() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-
-  // --- CONFIGURACIÓN DE TU CALENDARIO DIDÁCTICO ---
-  const proximosCursos = [
-    { fecha: "15 Mar", curso: "HACCP e Inocuidad", estado: "Cupo Disponible", color: "#84cc16" },
-    { fecha: "22 Mar", curso: "Primeros Auxilios", estado: "Últimos Lugares", color: "#ef4444" },
-    { fecha: "05 Abr", curso: "Buenas Prácticas (BPM)", estado: "Cupo Disponible", color: "#84cc16" },
-    { fecha: "12 Abr", curso: "Prevención de Incendios", estado: "Cupo Disponible", color: "#84cc16" }
-  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -131,7 +155,7 @@ export default function CipsaEnterprise() {
         </div>
       </section>
 
-      {/* --- CONTACTO Y MAPA CORREGIDO --- */}
+      {/* --- CONTACTO Y MAPA --- */}
       <section id="contacto" className="py-32 bg-white italic">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-24">
           <div>
@@ -147,10 +171,9 @@ export default function CipsaEnterprise() {
               </div>
             </div>
             
-            {/* MAPA DE GOOGLE CORREGIDO: JANOS, CHIH. */}
             <div className="h-96 bg-slate-100 rounded-[3rem] overflow-hidden grayscale border-8 border-slate-50 shadow-2xl relative group">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.69830843242!2d-108.1915645250428!3d30.585994992683056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86da7be8ace3f80d%3A0xfcfbfb9e6d211842!2sCipsa%20-%20Control%20de%20Plagas!5e0!3m2!1ses-419!2smx!4v1711111111111!5m2!1ses-419!2smx" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.789123456789!2d-108.18898123456789!3d30.88765432109876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86da36f012345678%3A0x1234567890abcdef!2sCipsa%20-%20Control%20de%20Plagas!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -164,8 +187,6 @@ export default function CipsaEnterprise() {
 
           <div className="bg-[#f8fafc] p-12 rounded-[3.5rem] border border-slate-100 shadow-xl self-start italic">
             <h3 className="text-3xl font-black mb-8 text-[#1e293b] uppercase tracking-tighter">Solicitud de Auditoría</h3>
-            
-            {/* FORMULARIO CON FORMSPREE FUNCIONAL */}
             <form action="https://formspree.io/f/mjgeeygr" method="POST" className="space-y-6">
               <input type="text" name="nombre" required placeholder="Nombre Completo" className="w-full p-5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-[#84cc16] transition-all" />
               <input type="email" name="email" required placeholder="Correo Electrónico" className="w-full p-5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-[#84cc16] transition-all" />
@@ -186,8 +207,10 @@ export default function CipsaEnterprise() {
                 <h3 className="text-4xl font-black text-[#1e293b] mb-2 uppercase italic tracking-tighter">Agenda de Cursos <span className="text-[#84cc16]">2026</span></h3>
                 <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em]">Validez Oficial DC3 - STPS</p>
               </div>
+              
               <div className="grid gap-6">
-                {proximosCursos.map((c, i) => (
+                {/* 👇 Aquí se cargan los cursos de la lista maestra automáticamente */}
+                {MIS_CURSOS.map((c, i) => (
                   <div key={i} className="flex flex-col md:flex-row items-center justify-between p-6 bg-slate-50 rounded-[2.5rem] border border-slate-100 group hover:bg-white hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center gap-6 mb-4 md:mb-0">
                       <div className="text-center bg-[#1e293b] text-[#84cc16] p-4 rounded-[1.5rem] min-w-[85px] shadow-lg group-hover:scale-105 transition-transform">
@@ -197,7 +220,7 @@ export default function CipsaEnterprise() {
                       <div>
                         <p className="text-xl font-black text-[#1e293b] uppercase tracking-tighter">{c.curso}</p>
                         <div className="flex items-center gap-2 mt-1">
-                          <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: c.color }}></div>
+                          <div className={`w-2 h-2 rounded-full animate-pulse ${c.urgencia === 'alta' ? 'bg-red-500' : 'bg-[#84cc16]'}`}></div>
                           <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{c.estado}</p>
                         </div>
                       </div>
