@@ -46,7 +46,7 @@ export default function HomePestControl() {
               🛡️ Certificados por COFEPRIS
             </span>
             <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
-              Protegemos tu hogar de <span className="text-primary">invadidos no deseados</span>
+              Protegemos tu hogar de <span className="text-primary">Invazores no deseados</span>
             </h1>
             <p className="text-lg text-slate-600 mb-8 max-w-lg">
               Soluciones profesionales de fumigación y control de plagas con tecnología de punta y productos 100% seguros para tu familia y mascotas.
@@ -194,4 +194,5 @@ export default function HomePestControl() {
       </footer>
     </div>
   );
+
 }
