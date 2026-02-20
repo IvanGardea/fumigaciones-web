@@ -180,7 +180,7 @@ export default function CipsaEnterprise() {
               <input type="text" name="nombre" required placeholder="Nombre Completo" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
               <input type="email" name="email" required placeholder="Email" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
               <select name="interes" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all text-slate-500 font-medium">
-                <option>Interés: Auditoría de Inocuidad</option>
+                <option>Interés: Asesoria de Inocuidad</option>
                 <option>Interés: Capacitación DC3</option>
                 <option>Interés: Control de Plagas Industrial</option>
               </select>
@@ -244,4 +244,5 @@ export default function CipsaEnterprise() {
     </div>
   );
 }
+
 
