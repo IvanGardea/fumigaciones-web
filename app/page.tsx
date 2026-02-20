@@ -58,7 +58,7 @@ export default function CipsaEnterprise() {
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="flex justify-center mb-6">
-              <span className="bg-[#84cc16] text-white px-4 py-1 rounded text-xs font-black uppercase tracking-[0.3em]">Consultoría Elite</span>
+              <span className="bg-[#84cc16] text-white px-4 py-1 rounded text-xs font-black uppercase tracking-[0.3em]">Consultoría</span>
             </div>
             <h1 className="text-5xl md:text-8xl font-black text-white mb-6 leading-tight">
               Líderes en <span className="text-[#84cc16]">Inocuidad</span> <br />y Control Industrial
@@ -71,7 +71,7 @@ export default function CipsaEnterprise() {
                 Solicitar Cotización <ChevronRight size={20} />
               </a>
               <div className="flex items-center justify-center gap-4 px-10 py-5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white font-bold">
-                <Award className="text-[#84cc16]" /> Certificación COFEPRIS
+                <Award className="text-[#84cc16]" /> Licencia COFEPRIS
               </div>
             </div>
           </motion.div>
@@ -106,7 +106,7 @@ export default function CipsaEnterprise() {
             {[
               { title: "Control Agroindustrial", icon: <Bug size={40} /> },
               { title: "Inocuidad Alimentaria", icon: <Microscope size={40} /> },
-              { title: "Asesoría y Auditoría", icon: <ClipboardCheck size={40} /> }
+              { title: "Asesoría para Auditoría", icon: <ClipboardCheck size={40} /> }
             ].map((s, i) => (
               <div key={i} className="group bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
                 <div className="text-[#84cc16] mb-8 group-hover:scale-110 transition-transform">{s.icon}</div>
@@ -175,7 +175,7 @@ export default function CipsaEnterprise() {
           </div>
 
           <div className="bg-[#f8fafc] p-12 rounded-[3rem] border border-slate-100 shadow-xl self-start">
-            <h3 className="text-3xl font-black mb-8 text-[#1e293b] italic">Solicitud de Auditoría</h3>
+            <h3 className="text-3xl font-black mb-8 text-[#1e293b] italic">Solicitud de Informacion</h3>
             <form action="https://formspree.io/f/mjgeeygr" method="POST" className="space-y-6">
               <input type="text" name="nombre" required placeholder="Nombre Completo" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
               <input type="email" name="email" required placeholder="Email" className="w-full p-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#84cc16] outline-none transition-all" />
@@ -244,3 +244,4 @@ export default function CipsaEnterprise() {
     </div>
   );
 }
+
